@@ -1,0 +1,21 @@
+version: '2'
+services:
+  ruc-orchestrator:
+    image: pablobalegno/ruc-orchestrator
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=${PROFILE_ACTIVE}
+      - CLOUD_AWS_CREDENTIALS_ACCESSKEY=${AWS_CREDENTIALS_ACCESSKEY}
+      - CLOUD_AWS_CREDENTIALS_SECRETKEY=${AWS_CREDENTIALS_SECRETKEY}
+      - SPRING_DATASOURCE_URL=jdbc:mysql://ruc-db:3306/${MYSQL_DATABASE}?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - STARTING_SLEEP=${STARTING_SLEEP}
+    ports:
+      - "8888:8888"
+  ruc-db:
+    image: 'mysql:5.7.26'
+    volumes:
+      - ~/volumes/var/mysql/:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
