@@ -1,7 +1,7 @@
 version: '2'
 services:
   ruc-orchestrator:
-    image: pablobalegno/ruc-orchestrator
+    image: nlocal/ruc-orchestrator
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=${PROFILE_ACTIVE}
@@ -14,7 +14,7 @@ services:
   ruc-db:
     image: 'mysql:5.7.26'
     volumes:
-      - ~/volumes/var/mysql/:/var/lib/mysql/
+      - /volumes/var/mysql/:/var/lib/mysql/
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
