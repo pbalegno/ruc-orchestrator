@@ -1,0 +1,4 @@
+version: '2'
+services:
+  ruc-orchestrator:
+    start_on_create: false

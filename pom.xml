@@ -43,6 +43,11 @@
 		</dependency>
 
 		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-envers</artifactId>
 		</dependency>
@@ -83,7 +88,7 @@
 						<image>adoptopenjdk:11-jre-hotspot</image>
 					</from>
 					<to>
-						<image>ruc-orchestrator:latest</image>
+						<image>nlocal/ruc-orchestrator:latest</image>
 					</to>
 					<container>
 						<entrypoint>
